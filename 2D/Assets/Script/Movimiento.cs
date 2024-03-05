@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
     public int saltosMaximos;
     public LayerMask capaSuelo;
     public AudioClip sonidoSalto;
+    public AudioManager audioManager;
 
     private Rigidbody2D rigidBody;
     private BoxCollider2D boxCollider;
@@ -58,6 +59,7 @@ public class CharacterController : MonoBehaviour
                 
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
                 rigidBody.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+                audioManager.ReproducirSonido(sonidoSalto);
             }
         }
     }
